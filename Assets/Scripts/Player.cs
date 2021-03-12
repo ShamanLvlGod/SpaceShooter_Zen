@@ -1,6 +1,5 @@
 ﻿using UniRx;
 using UnityEngine;
-using Zenject;
 
 public class Player : MonoBehaviour
 {
@@ -9,8 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private HealthSystem healthSystem;
     private BoundaryProvider boundaryProvider;
 
-    [Inject]
-    public void Init(BulletPool bulletPool, InputProvider inputProvider, BoundaryProvider boundaryProvider)
+    public void Init(InputProvider inputProvider, BoundaryProvider boundaryProvider, BulletPool bulletPool)
     {
         this.boundaryProvider = boundaryProvider;
         weapon.Init(bulletPool);

@@ -9,10 +9,6 @@ public class BoundaryProvider : MonoBehaviour
 
     public Bounds Bounds => bounds;
 
-    private void Start()
-    {
-
-    }
 
     private bool IsInsideBoundary(Vector3 point)
     {

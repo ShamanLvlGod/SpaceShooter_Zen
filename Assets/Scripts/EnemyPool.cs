@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class EnemyPool : ObjectPool<Enemy>
 {
-    [SerializeField] private BulletPool bulletPool;
-    [SerializeField] private BoundaryProvider boundaryProvider;
+    private BulletPool bulletPool;
+    private BoundaryProvider boundaryProvider;
+
+    public void Init(BulletPool bulletPool, BoundaryProvider boundaryProvider)
+    {
+        this.bulletPool = bulletPool;
+        this.boundaryProvider = boundaryProvider;
+    }
 
     public override Enemy Get()
     {

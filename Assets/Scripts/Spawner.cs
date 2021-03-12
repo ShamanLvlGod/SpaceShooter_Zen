@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
-using Zenject;
 using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour, ILevelSpawner
 {
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private BoundaryProvider boundaryProvider;
-
     [SerializeField] private List<BasePool> spawnables;
+    private BoundaryProvider boundaryProvider;
 
-    [Inject]
-    void Init(BoundaryProvider boundaryProvider)
+    public void Init(BoundaryProvider boundaryProvider)
     {
-        //this.boundaryProvider = boundaryProvider;
+        this.boundaryProvider = boundaryProvider;
         Observable.Interval(TimeSpan.FromSeconds(2)).Subscribe(ONNext);
     }
 
